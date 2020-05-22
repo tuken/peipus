@@ -1,0 +1,8 @@
+query GetManagers {
+    managers {
+        id
+        email
+        firstName
+        lastName
+    }
+}

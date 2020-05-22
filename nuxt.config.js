@@ -43,7 +43,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/apollo'],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -62,6 +62,16 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
         }
+      }
+    }
+  },
+  apollo: {
+    errorHandler: '~/plugins/apollo-error-handler.js',
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'http://localhost:8080/graphql',
+        wsEndpoint: 'ws://localhost:8080/graphql',
+        websocketsOnly: false,
       }
     }
   },
