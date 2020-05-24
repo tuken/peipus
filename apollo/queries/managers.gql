@@ -1,4 +1,4 @@
-query GetManagers {
+query managers {
     managers {
         id
         email

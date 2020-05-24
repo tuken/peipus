@@ -70,8 +70,8 @@ export default {
     clientConfigs: {
       default: {
         httpEndpoint: 'http://localhost:8080/graphql',
-        wsEndpoint: 'ws://localhost:8080/graphql',
-        websocketsOnly: false,
+        // wsEndpoint: 'ws://localhost:8080/graphql',
+        // websocketsOnly: false,
       }
     }
   },
