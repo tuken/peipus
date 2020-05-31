@@ -43,7 +43,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/apollo'],
+  modules: [
+    '@nuxtjs/apollo',
+    '@nuxtjs/proxy'
+  ],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -66,13 +69,31 @@ export default {
     }
   },
   apollo: {
+    // // (Optional) Default 'apollo' definition
+    // defaultOptions: {
+    //   // See 'apollo' definition
+    //   // For example: default query options
+    //   $query: {
+    //     loadingKey: 'loading',
+    //     fetchPolicy: 'cache-and-network',
+    //   },
+    // },
+    // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
     errorHandler: '~/plugins/apollo-error-handler.js',
     clientConfigs: {
       default: {
-        httpEndpoint: 'http://localhost:8080/graphql',
+        httpEndpoint: 'http://localhost:8080/query',
         // wsEndpoint: 'ws://localhost:8080/graphql',
         // websocketsOnly: false,
       }
+    }
+  },
+  proxy: {
+    '/query': {
+      target: 'http://localhost:3000/query'
+      // pathRewrite: {
+      //   '^/api' : '/'
+      //   }
     }
   },
   /*
